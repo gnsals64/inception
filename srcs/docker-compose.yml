@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    image: mariadb
+    networks:
+      - inception
+    expose:
+      - '3306'
+    restart: always
+    env_file:
+      - .env
