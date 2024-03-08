@@ -14,4 +14,4 @@ services:
 
 networks:
   inception:
-    driver: brige
+    driver: bridge
