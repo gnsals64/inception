@@ -7,11 +7,12 @@ down:
 	docker-compose -f ./srcs/docker-compose.yml down 
 
 clean:
-	$(down) --v
+	docker-compose -f ./srcs/docker-compose.yml down --v
+	docker system prune -af
 	rm -rf /home/hunpark/data
 
-re:	down
+re:	clean
 	docker system prune -af
 	$(MAKE) up
 
-.PHONY: up down re
+.PHONY: up down clean re
