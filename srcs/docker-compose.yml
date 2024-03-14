@@ -1,13 +1,14 @@
-version: '3'
+version: "3"
 
 services:
   mariadb:
+    container_name: mariadb
     image: mariadb
     build: ./requirements/mariadb
     networks:
       - inception
     expose:
-      - '3306'
+      - "3306"
     restart: always
     env_file:
       - .env
@@ -15,3 +16,10 @@ services:
 networks:
   inception:
     driver: bridge
+
+volumes:
+  db-volume:
+    driver_opts:
+      device: /home/hunpark/data/db-data
+      type: none
+      o: bind
