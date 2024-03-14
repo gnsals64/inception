@@ -7,7 +7,7 @@ down:
 	docker-compose -f ./srcs/docker-compose.yml down 
 
 clean:
-	make down --v
+	$(down) --v
 	rm -rf /home/hunpark/data
 
 re:	down
