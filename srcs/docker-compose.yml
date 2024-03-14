@@ -15,6 +15,20 @@ services:
     env_file:
       - .env
 
+  wordpress:
+    container_name: wordpress
+    image: wordpress
+    build: ./requirements/wordpress
+    volumes:
+      - wp-volume:/var/www/html
+    depends_on:
+      - mariadb
+    env_file:
+      - .env
+    networks:
+      - inception
+    restart: always
+
 networks:
   inception:
     driver: bridge
@@ -23,5 +37,11 @@ volumes:
   db-volume:
     driver_opts:
       device: /home/hunpark/data/db-data
+      type: none
+      o: bind
+
+  wp-volume:
+    driver_opts:
+      device: /home/hunpark/data/wp-data
       type: none
       o: bind
