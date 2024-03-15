@@ -37,7 +37,7 @@ RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g' /etc/php/7.4/fpm/
 # 모든 네트워크 인터페이스(로컬 루프백 및 외부 네트워크)에서 9000 포트로 들어오는 연결을 수신하도록 변경
 # 웹 서버나 다른 시스템에서 PHP-FPM과 연결 가능해짐
 
-COPY ./conf/script.sh /tmp/script.sh
+COPY ./tools/script.sh /tmp/script.sh
 RUN chmod +x /tmp/script.sh
 EXPOSE 9000
 CMD ["sh", "/tmp/script.sh"]
