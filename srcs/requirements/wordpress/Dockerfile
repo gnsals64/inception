@@ -35,4 +35,5 @@ RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g' /etc/php/7.4/fpm/
 COPY ./tools/script.sh /tmp/script.sh
 RUN chmod +x /tmp/script.sh
 EXPOSE 9000
+CMD [ "php-fpm7.4 -F" ]
 ENTRYPOINT ["sh", "/tmp/script.sh"]
