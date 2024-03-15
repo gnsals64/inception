@@ -1,11 +1,9 @@
 FROM debian:bullseye
 
-RUN apt-get -y update \
-    apt-get -y upgrade
+RUN apt-get -y update && apt-get -y upgrade
 # tini 옵션을 사용해야, 종료 시그널 처리, 초기화 프로세스 사용, 자식 프로세스 생성 및 관리 등을 위해
 # nginx도 부모 자식 프로세스에 관련되었기 떄문
-RUN apt install nginx -y \
-    apt install openssl -y
+RUN apt-get install nginx -y && apt-get install openssl -y
 
 COPY ./conf/nginx.conf /etc/nginx/http.d
 
