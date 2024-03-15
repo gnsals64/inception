@@ -1,7 +1,7 @@
 if [ ! $(wp core is-installed --path=/var/www/html --allow-root)]; then
   wp core download --allow-root
 
-  sleep10
+  sleep 10
   wp config create --dbname=${DB_NAME} --dbuser=${DB_USER} --dbpass=${DB_PASSWORD} --dbhost=mariadb:3306 --allow-root
 
   sleep 5
