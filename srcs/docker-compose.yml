@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   mariadb:
@@ -10,7 +10,7 @@ services:
     networks:
       - inception
     expose:
-      - "3306"
+      - '3306'
     restart: always
     env_file:
       - .env
@@ -27,6 +27,20 @@ services:
       - .env
     networks:
       - inception
+    restart: always
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    depends_on:
+      - wordpress
+    build: ./requirements/nginx
+    ports:
+      - '443:443'
+    networks:
+      - inception
+    volumes:
+      - wp-volume:/var/www/
     restart: always
 
 networks:
