@@ -18,13 +18,13 @@ RUN apt-get install -y  \
 		mariadb-client \
 		curl
 
+#wp-cli 설치
 WORKDIR /tmp
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /bin/wp
 
 RUN mkdir -p /var/www/html
-
 WORKDIR /var/www/html
 
 RUN sed -i 's/;chdir = \/var\/www/chdir = \/var\/www\/html/g' /etc/php/7.4/fpm/pool.d/www.conf
