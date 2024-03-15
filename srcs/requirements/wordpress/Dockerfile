@@ -16,13 +16,11 @@ RUN apt-get install -y  \
 		php-zip \
 		mariadb-server \
 		mariadb-client \
-		curl 
+		curl
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /bin/wp
-
-
 
 RUN mkdir -p /var/www/html
 
