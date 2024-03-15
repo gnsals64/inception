@@ -18,6 +18,7 @@ RUN apt-get install -y  \
 		mariadb-client \
 		curl
 
+WORKDIR /tmp
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /bin/wp
