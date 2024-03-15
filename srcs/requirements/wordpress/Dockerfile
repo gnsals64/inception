@@ -22,11 +22,9 @@ RUN mkdir -p /var/www/html && \
     chown -R www-data:www-data /var/www
 
 WORKDIR  /tmp
-RUN wget https://wordpress.org/latest.tar.gz
-RUN tar -xvzf latest.tar.gz
-RUN mv wordpress /var/www/
-RUN ls -al /var/www/
-RUN chmod -R 755 /var/www/wordpress/
-RUN	chown -R www-data:www-data /var/www/wordpress/
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /bin/wp 
+
 
 EXPOSE 9000
