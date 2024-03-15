@@ -15,7 +15,8 @@ RUN apt-get install -y  \
 		php-zip \
 		mariadb-server \
 		mariadb-client \
-		curl
+		curl \
+		wget
 
 WORKDIR  /tmp
 RUN wget https://wordpress.org/latest.tar.gz
