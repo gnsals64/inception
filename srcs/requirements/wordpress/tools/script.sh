@@ -1,3 +1,7 @@
+
+mkdir -p /run/php/
+touch /run/php/php7.4-fpm.sock
+
 if [ ! $(wp core is-installed --path=/var/www/html --allow-root)]; then
   wp core download --allow-root
   echo "download clear"
