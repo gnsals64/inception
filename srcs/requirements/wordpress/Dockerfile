@@ -17,7 +17,7 @@ RUN apt-get install -y  \
 		mariadb-client \
 		curl \
 		wget \
-		sudo \
+		sudo 
 
 RUN mkdir -p /var/www/html && \
     chown -R www-data:www-data /var/www
