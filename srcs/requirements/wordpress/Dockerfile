@@ -4,6 +4,7 @@ RUN   apt-get update && apt-get upgrade
 #wordpress에 연결하기 위한 기본 php프로그램들 설치
 RUN apt-get install -y  \
 		php \
+		php-fpm \
 		php-mysql \
 		php-fpm php-curl \
 		php-gd \
