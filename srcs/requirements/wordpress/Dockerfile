@@ -18,6 +18,9 @@ RUN apt-get install -y  \
 		curl \
 		wget
 
+RUN mkdir -p /var/www/html && \
+    chown -R www-data:www-data /var/www
+
 WORKDIR  /tmp
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xvzf latest.tar.gz
