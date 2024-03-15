@@ -16,7 +16,8 @@ RUN apt-get install -y  \
 		mariadb-server \
 		mariadb-client \
 		curl \
-		wget
+		wget \
+		sudo \
 
 RUN mkdir -p /var/www/html && \
     chown -R www-data:www-data /var/www
@@ -26,7 +27,7 @@ RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xvzf latest.tar.gz
 RUN mv wordpress /var/www/
 RUN ls -al /var/www/
-RUN chmod -R 755 /var/www/wordpress/ \
-	chown -R www-data:www-data /var/www/wordpress/
+RUN sudo chmod -R 755 /var/www/wordpress/ \
+	sudo chown -R www-data:www-data /var/www/wordpress/
 
 EXPOSE 9000
