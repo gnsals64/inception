@@ -24,7 +24,8 @@ RUN mkdir -p /var/www/html && \
 WORKDIR  /tmp
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
-RUN mv wp-cli.phar /bin/wp 
+RUN mv wp-cli.phar /bin/wp
+RUN wp
 
 
 EXPOSE 9000
