@@ -22,5 +22,7 @@ WORKDIR  /tmp
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xvzf latest.tar.gz
 RUN mv wordpress /var/www/
-RUN sudo chown -R www-data:www-data /var/www/wordpress/ \
-	sudo chmod -R 755 /var/www/wordpress/
+RUN chmod -R 755 /var/www/wordpress/ \
+	chown -R www-data:www-data /var/www/wordpress/
+
+EXPOSE 9000
