@@ -10,5 +10,5 @@ if [ ! -f "/var/www/html/index.php" ]; then
 # 워드프레스에 새로운 유저 생성
 fi
 
-php-fpm -F
+service php-fpm start
 # php-fpm 서버 실행. forground shell session not deamon

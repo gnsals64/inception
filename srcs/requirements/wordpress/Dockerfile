@@ -28,9 +28,6 @@ RUN mkdir -p /var/www/html
 
 WORKDIR /var/www/html
 
-RUN php -v
-RUN ls -al /etc/php/
-
 RUN sed -i 's/;chdir = \/var\/www/chdir = \/var\/www\/html/g' /etc/php/7.4/fpm/pool.d/www.conf
 # php-fpm의 www.conf 파일에서 설정을 수정, 작업 디렉토리 변경
 RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g' /etc/php/7.4/fpm/pool.d/www.conf
