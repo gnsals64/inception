@@ -28,7 +28,7 @@ RUN mkdir -p /var/www/html
 WORKDIR /var/www/html
 
 RUN sed -i 's/;chdir = \/var\/www/chdir = \/var\/www\/html/g' /etc/php/7.4/fpm/pool.d/www.conf
-RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g' /etc/php/7.4/fpm/pool.d/www.conf
+RUN sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 0.0.0.0:9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 
 
 COPY ./tools/script.sh /tmp/script.sh
