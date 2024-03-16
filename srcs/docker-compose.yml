@@ -11,16 +11,16 @@ services:
       - inception
     expose:
       - '3306'
-    restart: always
     env_file:
       - .env
+    restart: always
 
   wordpress:
     container_name: wordpress
     image: wordpress
     build: ./requirements/wordpress
     volumes:
-      - wp-volume:/var/www/html
+      - wp-volume:/var/www
     depends_on:
       - mariadb
     env_file:
@@ -41,6 +41,8 @@ services:
       - inception
     volumes:
       - wp-volume:/var/www/
+    env_file:
+      - .env
     restart: always
 
 networks:
