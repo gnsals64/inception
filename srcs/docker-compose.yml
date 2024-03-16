@@ -53,7 +53,11 @@ volumes:
   db-volume:
     driver_opts:
       device: /home/hunpark/data/db-data
+      type: none
+      o: bind
 
   wp-volume:
     driver_opts:
       device: /home/hunpark/data/wp-data
+      type: none
+      o: bind
